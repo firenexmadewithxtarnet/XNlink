@@ -3,45 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSL Troubleshooting</title>
-    <link rel="stylesheet" href="https://xtarnet.us.to/style.css">
+    <title>XNlink</title>
+    <style>
+        /* Dark theme styling */
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .movie-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .movie-card {
+            background-color: #1f1f1f;
+            border-radius: 8px;
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .movie-card:hover {
+            transform: scale(1.05);
+        }
+        .movie-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .movie-title {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .movie-description {
+            font-size: 0.9em;
+            color: #b3b3b3;
+        }
+        /* Ad Container */
+        .ad-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>SSL m Troubleshooting Guide</h1>
-    </header>
-    
-    <main>
-        <section id="check">
-            <h2>Check Your SSL Certificate</h2>
-            <button id="checkButton">Check SSL</button>
-            <p id="result"></p>
-        </section>
+    <div class="container">
+     
+        
+        <!-- Adsterra Ad Code Integration -->
+        <div class="ad-container">
+            <script type='text/javascript' src='//pl24298706.cpmrevenuegate.com/e6/e5/c5/e6e5c53259ccb1a2390e4a838c8f3928.js'></script>
+        </div>
 
-        <section id="common-issues">
-            <h2>Common SSL Issues</h2>
-            <ul>
-                <li>Expired Certificate</li>
-                <li>Certificate Not Trusted</li>
-                <li>Mixed Content</li>
-                <li>Incorrect Domain</li>
-            </ul>
-        </section>
+        <!-- Movie List Section -->
+        <div class="movie-list" id="movieList">
+            <!-- Movies will be dynamically generated here -->
+        </div>
+    </div>
 
-        <section id="resources">
-            <h2>Resources</h2>
-            <ul>
-                <li><a href="https://www.sslshopper.com/ssl-checker.html" target="_blank">SSL Checker</a></li>
-                <li><a href="https://letsencrypt.org/" target="_blank">Let's Encrypt</a></li>
-                <li><a href="https://www.digicert.com/help/" target="_blank">DigiCert SSL Installation Support</a></li>
-            </ul>
-        </section>
-    </main>
+    <script>
+        // Movie data array with updated image URLs
+        const movies = [
+            {
+                title: "Inception",
+                description: "A skilled thief, who commits corporate espionage by infiltrating the subconscious of his targets.",
+                thumbnail: "https://m.media-amazon.com/images/I/51NbVEuw1HL._AC_.jpg" // Updated URL
+            },
+            {
+                title: "The Dark Knight",
+                description: "Batman faces the Joker, a criminal mastermind who wants to plunge Gotham City into anarchy.",
+                thumbnail: "https://m.media-amazon.com/images/I/51h0YzhNfHL._AC_.jpg" // Updated URL
+            },
+            {
+                title: "Interstellar",
+                description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+                thumbnail: "https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg"
+            },
+            {
+                title: "The Matrix",
+                description: "A hacker discovers the reality he lives in is a simulation and joins a rebellion against its controllers.",
+                thumbnail: "https://upload.wikimedia.org/wikipedia/en/c/c1/The_Matrix_Poster.jpg"
+            }
+        ];
 
-    <footer>
-        <p>&copy; 2024 SSL Troubleshooting Guide. All rights reserved.</p>
-    </footer>
+        // Function to dynamically generate movie cards
+        function displayMovies() {
+            const movieList = document.getElementById('movieList');
+            movies.forEach(movie => {
+                const movieCard = document.createElement('div');
+                movieCard.className = 'movie-card';
 
-    <script src="https://xtarnet.us.to/script.js"></script>
+                movieCard.innerHTML = `
+                    <img src="${movie.thumbnail}" alt="${movie.title}">
+                    <h2 class="movie-title">${movie.title}</h2>
+                    <p class="movie-description">${movie.description}</p>
+                `;
+
+                movieList.appendChild(movieCard);
+            });
+        }
+
+        // Initialize display
+        displayMovies();
+    </script>
 </body>
 </html>
